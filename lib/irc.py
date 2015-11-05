@@ -27,7 +27,8 @@ class Irc:
         try:
             sock.connect((server, port))
         except:
-            pp('Error connecting to IRC server. (%s:%i) (%i)' % (server, port, self.socket_retry_count + 1), 'error')
+            pp('Error connecting to IRC server. (%s:%i) (%i)' %
+               (server, port, self.socket_retry_count + 1), 'error')
 
             if self.socket_retry_count < 2:
                 self.socket_retry_count += 1
@@ -67,7 +68,8 @@ class Irc:
         self.ping(data)
 
         if self.check_has_message(data):
-            return [self.parse_message(line) for line in filter(None, data.split('\r\n'))]
+            return [self.parse_message(line) for line in
+                    filter(None, data.split('\r\n'))]
 
     def check_login_status(self, data):
         if not re.match(r'^:(testserver\.local|tmi\.twitch\.tv) NOTICE \* :Login unsuccessful\r\n$', data): return True

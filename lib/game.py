@@ -1,5 +1,5 @@
-import win32api
-import win32con
+# import win32api
+# import win32con
 import time
 
 class Game:
@@ -25,6 +25,7 @@ class Game:
         return self.keymap[button]
 
     def push_button(self, button):
-        win32api.keybd_event(self.button_to_key(button), 0, 0, 0)
-        time.sleep(.15)
-        win32api.keybd_event(self.button_to_key(button), 0, win32con.KEYEVENTF_KEYUP, 0)
+        print "Button pressed:", button, self.button_to_key(button)
+        # win32api.keybd_event(self.button_to_key(button), 0, 0, 0)
+        # time.sleep(.15)
+        # win32api.keybd_event(self.button_to_key(button), 0, win32con.KEYEVENTF_KEYUP, 0)
